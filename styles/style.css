@@ -8,6 +8,25 @@ html {
   block-size: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
 .page {
   inline-size: 1200px;
   block-size: 100%;
@@ -27,17 +46,15 @@ html {
   grid-template-areas: 
   "result content__details";
   align-items: end;
-  width: 1140px;
-  height: 534px;
+  inline-size: 1140px;
   gap: 30px;
-
 }
 
 .result {
   grid-area: result;
   height: inherit;
   display: flex;
-  gap: 26px;
+  gap: 18px;
   flex-direction: column;
   justify-content: flex-end;
 }
@@ -45,7 +62,7 @@ html {
 .result__video-container {
   position: relative;
   inset: 0;
-  height: 386px;
+  block-size: 386px;
   width: 100%;
 }
 
@@ -74,8 +91,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 54px;
-  padding-bottom: 20px;
+  padding-bottom: 7px;
 }
 
 .search-form__checkbox-list {
@@ -89,16 +105,18 @@ html {
 
 .search-form__label {
   display: flex;
-  width: fit-content;
+  align-items: center;
   gap: 5px;
+  width: fit-content;
   font-weight: 400;
 }
 
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
+  outline-offset: 2px;
 }
 
-.search-form__label:hover {
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -114,6 +132,11 @@ html {
   appearance: none;
   background-color: transparent;
   width: 224px;
+}
+
+.search-form__textfield::placeholder {
+  color: #fff;
+  opacity: 0.7;
 }
 
 .search-form__textfield:focus {
@@ -140,38 +163,18 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
 
 .search-form__pseudo-checkbox:has(:focus-visible) {
   outline: 1px solid #fff;
+  outline-offset: 2px;
 }
 
 .content__list-container {
-  height: 534px;
   overflow: auto;
   position: relative;
+  block-size: 298px;
 }
-
 
 .content__video-card {
   display: flex;
   justify-content: space-between;
-}
-
-.content__video-card:hover {
-  text-decoration: underline;
-}
-
-.content__video-card:focus-visible {
-  outline: 1px solid #fff;
-}
-
-.content__video-card:focus {
-  outline: none;
-}
-
-.content__video-card:active {
-  background-color: #545050;
-}
-
-.content__card-link_current {
-  background-color: #545050;
 }
 
 .content__list-item {
@@ -179,8 +182,8 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
 }
 
 .content__video-card-thumbnail {
-  height: 103px;
-  width: 194px;
+  block-size: 103px;
+  inline-size: 194px;
   object-fit: cover;
   object-position: center;
 }
@@ -190,8 +193,9 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
 }
 
 .button {
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   color: #fff;
+  font-family: inherit;
   font-size: 18px;
   font-weight: 700;
   line-height: 21.6px;
@@ -209,6 +213,7 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
 
 .button:focus-visible {
   outline: 1px solid #fff;
+  outline-offset: 2px;
 }
 
 .button:focus {
@@ -217,33 +222,14 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
 
 .more-button {
   margin-top: 30px;
-  width: 100%;
-  height: 34px;
+  inline-size: 100%;
+  block-size: 34px;
 }
 
 .search-form__submit-button {
-  width: 194px;
-  height: 34px;
+  inline-size: 194px;
+  block-size: 34px;
   margin-top: 20px;
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol,
-li,
-blockquote,
-fieldset {
-  margin: 0;
-  padding: 0;
-}
-
-ul,
-ol {
-  list-style: none;
 }
 
 .search-form__fieldset-title {
@@ -259,7 +245,6 @@ ol {
   line-height: 70.5px;
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
-  margin: -8px 0;
 }
 
 .content__accent {
@@ -269,6 +254,28 @@ ol {
 .content__card-link {
   text-decoration: none;
   color: #fff;
+  display: block;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link_current {
+  background-color: #545050;
 }
 
 .content__video-card-title {
@@ -279,11 +286,11 @@ ol {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 196px;
+  inline-size: 196px;
 }
 
 .content__video-card-description {
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: inherit;
   font-size: 18px;
   font-weight: 400;
   line-height: 16.2px;
