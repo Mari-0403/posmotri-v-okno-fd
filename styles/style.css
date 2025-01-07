@@ -46,7 +46,6 @@ ol {
   grid-template-areas: 
   "result content__details";
   align-items: end;
-  inline-size: 1140px;
   gap: 30px;
 }
 
@@ -111,6 +110,10 @@ ol {
   font-weight: 400;
 }
 
+.search-form__label:has(:focus) {
+  outline: none;
+}
+
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
@@ -144,7 +147,7 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   width: 19px;
   height: 19px;
   padding: 1px;
@@ -159,6 +162,10 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
   display: block;
   width: 15px;
   height: 15px;
+}
+
+.search-form__pseudo-checkbox:has(:focus) {
+  outline: none;
 }
 
 .search-form__pseudo-checkbox:has(:focus-visible) {
@@ -202,13 +209,8 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
   background-color: transparent;
 }
 
-.button:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.button:active {
-  background-color: #545050;
+.button:focus {
+  outline: none;
 }
 
 .button:focus-visible {
@@ -216,8 +218,13 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
   outline-offset: 2px;
 }
 
-.button:focus {
-  outline: none;
+.button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
 }
 
 .more-button {
@@ -257,8 +264,8 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
   display: block;
 }
 
-.content__card-link:hover {
-  text-decoration: underline;
+.content__card-link:focus {
+  outline: none;
 }
 
 .content__card-link:focus-visible {
@@ -266,9 +273,10 @@ input[type='checkbox']:checked + .search-form__pseudo-checkbox::after {
   outline-offset: 2px;
 }
 
-.content__card-link:focus {
-  outline: none;
+.content__card-link:hover {
+  text-decoration: underline;
 }
+
 
 .content__card-link:active {
   background-color: #545050;
