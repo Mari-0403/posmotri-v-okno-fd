@@ -125,6 +125,7 @@ ol {
 }
 
 .search-form__textfield {
+  color: #fff;
   font-family: inherit;
   font-size: 18px;
   font-weight: 400;
